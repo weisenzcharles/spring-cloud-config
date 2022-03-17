@@ -1,0 +1,15 @@
+server:
+  port: 9001
+# eureka 配置
+eureka:
+  instance:
+    appname: springcloud-eureka-9001
+    hostname: ${eureka.instance.appname}
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      # 单机
+      #      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # 集群
+      defaultZone: http://springcloud-eureka-9002:9002/eureka/,http://springcloud-eureka-9003:9003/eureka/
